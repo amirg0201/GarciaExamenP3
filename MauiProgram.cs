@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using Microsoft.Maui;
+using Microsoft.Maui.Hosting;
+using SQLitePCL;
 
 namespace GarciaExamenP3
 {
@@ -18,7 +21,7 @@ namespace GarciaExamenP3
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
-
+            Batteries_V2.Init();
             return builder.Build();
         }
     }
