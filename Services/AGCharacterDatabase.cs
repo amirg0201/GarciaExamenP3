@@ -24,9 +24,14 @@ namespace GarciaExamenP3.Services
             return _database.Table<AGCharacter>().ToListAsync();
         }
 
-        public Task<int> SaveCharacterAsync(AGCharacter character)
+        public async Task<int> SaveCharacterAsync(AGCharacter character)
         {
-            return _database.InsertAsync(character);
+            if (character.Thumbnail != null)
+            {
+                await _database.InsertAsync(character.Thumbnail);
+                character.ThumbnailId = character.Thumbnail.Id;
+            }
+            return await _database.InsertAsync(character);
         }
     }
 }

@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GarciaExamenP3.View.AGCharactersPagePage"
-             Title="NewPage1">
+             xmlns:local="clr-namespace:GarciaExamenP3.ModelView"
+             Title="Personajes">
     
 
     <StackLayout Padding="10">
@@ -15,6 +16,7 @@
                         <StackLayout>
                             <Label Text="{Binding Name}" FontAttributes="Bold" />
                             <Label Text="{Binding Description}" />
+                            <Button Text="Guardar" Command="{Binding Source={RelativeSource AncestorType={x:Type local:AGCharacterViewModel}}, Path=SaveSelectedCommand}" CommandParameter="{Binding .}" />
                         </StackLayout>
                     </StackLayout>
                 </DataTemplate>

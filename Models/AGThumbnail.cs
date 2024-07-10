@@ -9,6 +9,8 @@ namespace GarciaExamenP3.Models
 {
     public class AGThumbnail
     {
+        [PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         public string Path { get; set; }
         public string Extension { get; set; }
 

@@ -30,6 +30,7 @@ namespace GarciaExamenP3.ModelView
         }
 
         public ICommand LoadCharactersCommand { get; }
+        public ICommand SaveSelectedCommand { get; }
 
         private async Task LoadCharactersAsync()
         {
@@ -43,7 +44,10 @@ namespace GarciaExamenP3.ModelView
 
         private async Task SaveCharacterAsync(AGCharacter character)
         {
-            await _characterDatabase.SaveCharacterAsync(character);
+            if (character != null)
+            {
+                await _characterDatabase.SaveCharacterAsync(character);
+            }
         }
 
         private string CreateHash(string timestamp, string privateKey, string publicKey)
